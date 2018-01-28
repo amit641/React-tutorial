@@ -4,15 +4,38 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons : [
-      { id:'431', name: 'Amit', age: 26},
-      { id:'2213', name: 'Dilip', age: 29},
-      { id:'3453', name: 'Ravi', age: 32}
-    ],
-    otherState: 'some other value',
-    showPersons : false
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Inside Constructor',props);
+    this.state = {
+      persons : [
+        { id:'431', name: 'Amit', age: 26},
+        { id:'2213', name: 'Dilip', age: 29},
+        { id:'3453', name: 'Ravi', age: 32}
+      ],
+      otherState: 'some other value',
+      showPersons : false
+    };
   }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount()');
+  }
+
+
+  // state = {
+  //   persons : [
+  //     { id:'431', name: 'Amit', age: 26},
+  //     { id:'2213', name: 'Dilip', age: 29},
+  //     { id:'3453', name: 'Ravi', age: 32}
+  //   ],
+  //   otherState: 'some other value',
+  //   showPersons : false
+  // };
 
   // switchNameHandler = (newName) => {
   //   // console.log('was clicked !!!');
@@ -66,19 +89,7 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-      // ':hover': {
-      //   backgroundColor: 'lightgreen',
-      //   color: 'black'
-      // }
-    }
-
+    console.log('[App.js] Inside render()');
     let persons = null;
 
     if(this.state.showPersons){
